@@ -58,8 +58,8 @@ renderFoodGroup('carbFoods', 'carb');
 
 renderFoodGroup('fatFoods', 'fat');
 
-renderFoodGroup('vegFoods', 'veg');.innerHTML = foods.map(([name,cost])=>`<button class="food" onclick='spend(${JSON.stringify(cost)})'>${name}<small>${costText(cost)}</small></button>`).join('');
-  document.getElementById('note').value = state.note || '';
+renderFoodGroup('vegFoods', 'veg');
+document.getElementById('note').value = state.note || '';
 }
 function costText(cost){ return Object.entries(cost).map(([k,v])=>`${v} ${labels[k]}`).join(' · '); }
 document.getElementById('workoutBtn').onclick=()=>{state.type='workout';save();render()};

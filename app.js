@@ -40,7 +40,25 @@ function render(){
     return `<article class="macro ${colors[k]}"><div class="macro-head"><div class="macro-title">${labels[k]}</div><div class="count">${used}/${t[k]}</div></div><div class="bar"><div class="fill" style="width:${pct}%"></div></div><div class="actions"><button onclick="adjust('${k}',-.5)">−½</button><button onclick="adjust('${k}',.5)">+½</button><button onclick="adjust('${k}',1)">+1</button></div></article>`
   }).join('');
   document.getElementById('meals').innerHTML = meals.map(([name,cost])=>`<button class="meal" onclick='spend(${JSON.stringify(cost)})'>${name}<small>${costText(cost)}</small></button>`).join('');
-  document.getElementById('foods').innerHTML = foods.map(([name,cost])=>`<button class="food" onclick='spend(${JSON.stringify(cost)})'>${name}<small>${costText(cost)}</small></button>`).join('');
+ function renderFoodGroup(id, macro) {
+
+  document.getElementById(id).innerHTML = foods
+
+    .filter(([name, cost]) => cost[macro])
+
+    .map(([name, cost]) => `<button class="food" onclick='spend(${JSON.stringify(cost)})'>${name}<small>${costText(cost)}</small></button>`)
+
+    .join('');
+
+}
+
+renderFoodGroup('proteinFoods', 'protein');
+
+renderFoodGroup('carbFoods', 'carb');
+
+renderFoodGroup('fatFoods', 'fat');
+
+renderFoodGroup('vegFoods', 'veg');.innerHTML = foods.map(([name,cost])=>`<button class="food" onclick='spend(${JSON.stringify(cost)})'>${name}<small>${costText(cost)}</small></button>`).join('');
   document.getElementById('note').value = state.note || '';
 }
 function costText(cost){ return Object.entries(cost).map(([k,v])=>`${v} ${labels[k]}`).join(' · '); }

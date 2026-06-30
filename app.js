@@ -68,5 +68,5 @@ document.getElementById('resetBtn').onclick=()=>{history.push(JSON.parse(JSON.st
 document.getElementById('undoBtn').onclick=()=>{const prev=history.pop(); if(prev){state=prev;save();render();}};
 document.getElementById('saveBtn').onclick=()=>{state.note=document.getElementById('note').value;save();alert('Saved')};
 document.getElementById('note').addEventListener('input', e=>{state.note=e.target.value;save();});
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(()=>{}); }
+
 render();

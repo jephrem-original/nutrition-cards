@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <title>Nutrition Cards</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Jeremy's</p>
+        <h1>Nutrition Cards</h1>
+      </div>
+      <button id="resetBtn" class="ghost">Reset</button>
+    </header>
+
+    <section class="panel day-panel">
+      <div>
+        <h2>Today</h2>
+        <p id="dateLabel" class="muted"></p>
+      </div>
+      <div class="segmented" role="group" aria-label="Day type">
+        <button id="workoutBtn" class="active">Workout</button>
+        <button id="restBtn">Rest</button>
+      </div>
+    </section>
+
+    <section class="cards" id="cards"></section>
+
+    <section class="panel">
+      <h2>Quick Meals</h2>
+      <div class="quick-grid" id="meals"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Food Cards</h2>
+      <p class="muted">Tap to spend cards. Long press is not needed.</p>
+      <div class="food-grid" id="foods"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Daily Note</h2>
+      <textarea id="note" placeholder="Energy, workout, weight, or anything worth noticing..."></textarea>
+    </section>
+  </main>
+
+  <nav class="bottom">
+    <button id="undoBtn">Undo</button>
+    <button id="saveBtn">Save</button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
